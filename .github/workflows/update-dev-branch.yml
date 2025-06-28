@@ -1,0 +1,36 @@
+name: Update ERPNEXT Branch in CityPetro-Dev
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  update-dev-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEV_SSH_PRIVATE_KEY_BASE64 }}" | base64 -d > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Clone citypetro-dev repository
+        run: |
+          git clone git@github.com:Techno-THT-Gmbh/citypetro-dev.git
+          cd citypetro-dev
+          git config user.name "GitHub Actions (CityPetro-ERP)"
+          git config user.email "chatgptplus.technotht@gmail.com"
+
+      - name: Update ERPNEXT_BRANCH
+        run: |
+          cd citypetro-dev
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          sed -i "s/export ERPNEXT_BRANCH=.*/export ERPNEXT_BRANCH=${TAG_NAME}/" appversions.rc
+          git add appversions.rc
+          git commit -m "update ERPNEXT_BRANCH to ${TAG_NAME}"
+          git push origin main

@@ -1,0 +1,64 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "ID-.##",
+ "creation": "2025-06-26 15:14:40.590787",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tag",
+  "rfid_reader_name",
+  "column_break_eaky",
+  "create_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "tag",
+   "fieldtype": "Data",
+   "label": "Tag"
+  },
+  {
+   "fieldname": "rfid_reader_name",
+   "fieldtype": "Link",
+   "label": "RFID Reader Name",
+   "options": "RFID Reader"
+  },
+  {
+   "fieldname": "column_break_eaky",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "create_time",
+   "fieldtype": "Datetime",
+   "label": "Create time",
+   "read_only": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-26 15:43:33.161423",
+ "modified_by": "Administrator",
+ "module": "RFID",
+ "name": "RFID Bucket",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

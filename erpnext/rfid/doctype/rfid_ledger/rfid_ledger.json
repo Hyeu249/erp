@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "RFID-LEDGER-.##",
+ "creation": "2025-06-26 15:33:07.106510",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_hb7i",
+  "amended_from",
+  "rfid_tag",
+  "column_break_buyq",
+  "location_from",
+  "location_to"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_hb7i",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "RFID Ledger",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "rfid_tag",
+   "fieldtype": "Link",
+   "label": "RFID Tag",
+   "options": "RFID Tag"
+  },
+  {
+   "fieldname": "column_break_buyq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location_from",
+   "fieldtype": "Link",
+   "label": "Location From",
+   "options": "RFID Location"
+  },
+  {
+   "fieldname": "location_to",
+   "fieldtype": "Link",
+   "label": "Location To",
+   "options": "RFID Location"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-06-26 15:58:41.252784",
+ "modified_by": "Administrator",
+ "module": "RFID",
+ "name": "RFID Ledger",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

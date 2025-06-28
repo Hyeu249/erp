@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:tag",
+ "creation": "2025-06-26 14:28:06.219113",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tag",
+  "serial_no",
+  "brand",
+  "color",
+  "reinspection_date",
+  "item",
+  "column_break_sikz",
+  "rfid_reader_name",
+  "rfid_user",
+  "ip_address",
+  "rfid_reading_time",
+  "amended_from",
+  "location_section",
+  "warehouse",
+  "customer"
+ ],
+ "fields": [
+  {
+   "fieldname": "tag",
+   "fieldtype": "Data",
+   "label": "Tag",
+   "unique": 1
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "rfid_reader_name",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "RFID Reader Name",
+   "options": "RFID Reader"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "rfid_reader_name.rfid_user",
+   "fieldname": "rfid_user",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "RFID User",
+   "options": "User"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "rfid_reader_name.ip_address",
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "IP Address"
+  },
+  {
+   "fieldname": "column_break_sikz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "rfid_reading_time",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "RFID Reading time"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "RFID Tag",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "serial_no",
+   "fieldtype": "Data",
+   "label": "Serial No"
+  },
+  {
+   "fieldname": "location_section",
+   "fieldtype": "Section Break",
+   "label": "Location"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "brand",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Brand",
+   "options": "City Petro\nVina Pacific Petro\nVimeco"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Color"
+  },
+  {
+   "fieldname": "reinspection_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Reinspection Date"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-06-28 14:14:45.753589",
+ "modified_by": "Administrator",
+ "module": "RFID",
+ "name": "RFID Tag",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
