@@ -563,7 +563,7 @@ frappe.tour["Delivery Note"] = [
 	},
 ];
 
-frappe.ui.form.on("RFID Ledger Detail", {
+frappe.ui.form.on("RFID Detail", {
 	rfid_tag(frm, cdt, cdn) {
 		frm.doc.items.forEach((res) => {
 			const rfids = frm.doc.rfids.filter((r) => r.item === res.item_code).map((e) => e.rfid_tag);

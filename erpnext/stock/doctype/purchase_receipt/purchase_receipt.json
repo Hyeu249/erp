@@ -1364,7 +1364,7 @@
    "fieldname": "rfids",
    "fieldtype": "Table",
    "label": "RFIDs",
-   "options": "RFID Ledger Detail"
+   "options": "RFID Detail"
   }
  ],
  "grid_page_length": 50,
@@ -1372,7 +1372,7 @@
  "idx": 261,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-28 10:56:55.100536",
+ "modified": "2025-06-30 10:28:25.441854",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Purchase Receipt",

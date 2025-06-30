@@ -86,7 +86,7 @@ class StockEntry(StockController):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from erpnext.rfid.doctype.rfid_ledger_detail.rfid_ledger_detail import RFIDLedgerDetail
+		from erpnext.rfid.doctype.rfid_detail.rfid_detail import RFIDDetail
 		from erpnext.stock.doctype.landed_cost_taxes_and_charges.landed_cost_taxes_and_charges import LandedCostTaxesandCharges
 		from erpnext.stock.doctype.stock_entry_detail.stock_entry_detail import StockEntryDetail
 		from frappe.types import DF
@@ -127,7 +127,7 @@ class StockEntry(StockController):
 		rfid_reader_name: DF.Link | None
 		rfid_reading_time: DF.Datetime | None
 		rfid_user: DF.Link | None
-		rfids: DF.Table[RFIDLedgerDetail]
+		rfids: DF.Table[RFIDDetail]
 		sales_invoice_no: DF.Link | None
 		scan_barcode: DF.Data | None
 		select_print_heading: DF.Link | None

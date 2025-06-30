@@ -1470,14 +1470,14 @@
    "fieldname": "rfids",
    "fieldtype": "Table",
    "label": "RFIDs",
-   "options": "RFID Ledger Detail"
+   "options": "RFID Detail"
   }
  ],
  "icon": "fa fa-truck",
  "idx": 146,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-28 10:57:34.239852",
+ "modified": "2025-06-30 10:26:45.810589",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Delivery Note",

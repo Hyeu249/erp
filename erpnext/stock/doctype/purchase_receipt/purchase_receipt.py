@@ -31,7 +31,7 @@ class PurchaseReceipt(BuyingController):
 		from erpnext.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
 		from erpnext.accounts.doctype.purchase_taxes_and_charges.purchase_taxes_and_charges import PurchaseTaxesandCharges
 		from erpnext.buying.doctype.purchase_receipt_item_supplied.purchase_receipt_item_supplied import PurchaseReceiptItemSupplied
-		from erpnext.rfid.doctype.rfid_ledger_detail.rfid_ledger_detail import RFIDLedgerDetail
+		from erpnext.rfid.doctype.rfid_detail.rfid_detail import RFIDDetail
 		from erpnext.stock.doctype.purchase_receipt_item.purchase_receipt_item import PurchaseReceiptItem
 		from frappe.types import DF
 
@@ -104,7 +104,7 @@ class PurchaseReceipt(BuyingController):
 		rfid_reader_name: DF.Link | None
 		rfid_reading_time: DF.Datetime | None
 		rfid_user: DF.Link | None
-		rfids: DF.Table[RFIDLedgerDetail]
+		rfids: DF.Table[RFIDDetail]
 		rounded_total: DF.Currency
 		rounding_adjustment: DF.Currency
 		scan_barcode: DF.Data | None

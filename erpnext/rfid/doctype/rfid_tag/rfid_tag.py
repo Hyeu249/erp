@@ -12,6 +12,7 @@ class RFIDTag(Document):
     from typing import TYPE_CHECKING
 
     if TYPE_CHECKING:
+        from erpnext.rfid.doctype.rfid_detail.rfid_detail import RFIDDetail
         from frappe.types import DF
 
         amended_from: DF.Link | None
@@ -24,6 +25,7 @@ class RFIDTag(Document):
         rfid_reader_name: DF.Link | None
         rfid_reading_time: DF.Datetime | None
         rfid_user: DF.Link | None
+        rfids: DF.Table[RFIDDetail]
         serial_no: DF.Data | None
         tag: DF.Data | None
         warehouse: DF.Link | None

@@ -5,7 +5,7 @@
 from frappe.model.document import Document
 
 
-class RFIDLedgerDetail(Document):
+class RFIDDetail(Document):
 	# begin: auto-generated types
 	# This code is auto-generated. Do not modify anything in this block.
 
@@ -14,8 +14,9 @@ class RFIDLedgerDetail(Document):
 	if TYPE_CHECKING:
 		from frappe.types import DF
 
-		brand: DF.Literal["City Petro", "Vina Pacific Petro", "Vimeco"]
+		brand: DF.Data | None
 		color: DF.Data | None
+		count: DF.Int
 		item: DF.Link | None
 		parent: DF.Data
 		parentfield: DF.Data

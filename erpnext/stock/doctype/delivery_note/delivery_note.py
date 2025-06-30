@@ -25,7 +25,7 @@ class DeliveryNote(SellingController):
 	if TYPE_CHECKING:
 		from erpnext.accounts.doctype.pricing_rule_detail.pricing_rule_detail import PricingRuleDetail
 		from erpnext.accounts.doctype.sales_taxes_and_charges.sales_taxes_and_charges import SalesTaxesandCharges
-		from erpnext.rfid.doctype.rfid_ledger_detail.rfid_ledger_detail import RFIDLedgerDetail
+		from erpnext.rfid.doctype.rfid_detail.rfid_detail import RFIDDetail
 		from erpnext.selling.doctype.sales_team.sales_team import SalesTeam
 		from erpnext.stock.doctype.delivery_note_item.delivery_note_item import DeliveryNoteItem
 		from erpnext.stock.doctype.packed_item.packed_item import PackedItem
@@ -109,7 +109,7 @@ class DeliveryNote(SellingController):
 		rfid_reader_name: DF.Link | None
 		rfid_reading_time: DF.Datetime | None
 		rfid_user: DF.Link | None
-		rfids: DF.Table[RFIDLedgerDetail]
+		rfids: DF.Table[RFIDDetail]
 		rounded_total: DF.Currency
 		rounding_adjustment: DF.Currency
 		sales_partner: DF.Link | None

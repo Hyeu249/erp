@@ -20,7 +20,9 @@
   "amended_from",
   "location_section",
   "warehouse",
-  "customer"
+  "customer",
+  "rfids_tab",
+  "rfids"
  ],
  "fields": [
   {
@@ -125,13 +127,24 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Reinspection Date"
+  },
+  {
+   "fieldname": "rfids_tab",
+   "fieldtype": "Tab Break",
+   "label": "RFIDs"
+  },
+  {
+   "fieldname": "rfids",
+   "fieldtype": "Table",
+   "label": "RFIDs",
+   "options": "RFID Detail"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-28 14:14:45.753589",
+ "modified": "2025-06-30 11:33:32.703941",
  "modified_by": "Administrator",
  "module": "RFID",
  "name": "RFID Tag",
