@@ -19,6 +19,7 @@ class RFIDTag(Document):
         brand: DF.Literal["City Petro", "Vina Pacific Petro", "Vimeco"]
         color: DF.Data | None
         customer: DF.Link | None
+        gas_serial_no: DF.Data | None
         ip_address: DF.Data | None
         item: DF.Link | None
         reinspection_date: DF.Date | None
@@ -26,7 +27,6 @@ class RFIDTag(Document):
         rfid_reading_time: DF.Datetime | None
         rfid_user: DF.Link | None
         rfids: DF.Table[RFIDDetail]
-        serial_no: DF.Data | None
         tag: DF.Data | None
         warehouse: DF.Link | None
     # end: auto-generated types

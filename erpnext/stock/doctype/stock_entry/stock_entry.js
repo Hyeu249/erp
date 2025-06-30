@@ -193,46 +193,41 @@ frappe.ui.form.on("Stock Entry", {
 
 		frappe.db
 			.get_list("RFID Tag", {
-				fields: ["tag", "item", "serial_no", "brand", "color", "reinspection_date", "warehouse"],
+				fields: ["tag", "item", "gas_serial_no", "brand", "color", "reinspection_date", "warehouse"],
 				filters: {
 					docstatus: 1,
 				},
 			})
 			.then((res) => {
 				frappe.require(module_path).then(() => {
-					const seenTags = new Set(frm.doc.rfids.map((e) => e.rfid_tag)); // Lưu tag đã có từ đầu
-
 					const success_cb = () => {
 						frappe.show_alert({ message: "Máy bắt đầu quét...!", indicator: "green" });
 
 						start_getting_rfid(frm, (epcArray) => {
-							let has_value = false;
 							epcArray.forEach((rfid) => {
+								const rfid_tag_found = frm.doc.rfids.find((r) => r.rfid_tag === rfid);
 								const rfid_found = res.find((r) => r.tag === rfid);
 								const item_found = frm.doc.items.find(
 									(r) => r.item_code && r.item_code === rfid_found?.item
 								);
-								const has_item = item_found !== undefined;
 								const transfer_rule =
 									frm.doc.purpose == "Material Transfer"
-										? has_item && item_found?.s_warehouse == rfid_found?.warehouse
-										: has_item;
+										? item_found && item_found?.s_warehouse == rfid_found?.warehouse
+										: item_found;
 
-								if (transfer_rule && rfid_found?.tag === rfid && !seenTags.has(rfid)) {
-									let d = frm.add_child("rfids");
-									d.rfid_tag = rfid_found.tag;
-									d.item = rfid_found.item;
-									d.serial_no = rfid_found.serial_no;
-									d.brand = rfid_found.brand;
-									d.color = rfid_found.color;
-									d.reinspection_date = rfid_found.reinspection_date;
-									frappe.model.trigger("rfid_tag", frm.doc.name, d);
-									seenTags.add(rfid); // Cập nhật luôn để không bị trùng ở lần scan tiếp theo
-									has_value = true;
+								if (transfer_rule && rfid_found && !rfid_tag_found) {
+									const serial_no = rfid_found.gas_serial_no;
+									const rei_d = rfid_found.reinspection_date;
+
+									const row = frm.fields_dict.rfids.grid.add_new_row();
+									frappe.model.set_value(row.doctype, row.name, "rfid_tag", rfid);
+									frappe.model.set_value(row.doctype, row.name, "item", rfid_found.item);
+									frappe.model.set_value(row.doctype, row.name, "gas_serial_no", serial_no);
+									frappe.model.set_value(row.doctype, row.name, "brand", rfid_found.brand);
+									frappe.model.set_value(row.doctype, row.name, "color", rfid_found.color);
+									frappe.model.set_value(row.doctype, row.name, "reinspection_date", rei_d);
 								}
 							});
-
-							if (has_value) frm.refresh_field("rfids");
 						});
 
 						console.log("success_cb!!");

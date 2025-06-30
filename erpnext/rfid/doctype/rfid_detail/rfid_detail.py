@@ -17,12 +17,12 @@ class RFIDDetail(Document):
 		brand: DF.Data | None
 		color: DF.Data | None
 		count: DF.Int
+		gas_serial_no: DF.Data | None
 		item: DF.Link | None
 		parent: DF.Data
 		parentfield: DF.Data
 		parenttype: DF.Data
 		reinspection_date: DF.Date | None
 		rfid_tag: DF.Link | None
-		serial_no: DF.Data | None
 	# end: auto-generated types
 	pass

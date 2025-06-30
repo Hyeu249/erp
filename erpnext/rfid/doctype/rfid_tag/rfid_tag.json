@@ -7,7 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "tag",
-  "serial_no",
+  "gas_serial_no",
   "brand",
   "color",
   "reinspection_date",
@@ -84,11 +84,6 @@
    "search_index": 1
   },
   {
-   "fieldname": "serial_no",
-   "fieldtype": "Data",
-   "label": "Serial No"
-  },
-  {
    "fieldname": "location_section",
    "fieldtype": "Section Break",
    "label": "Location"
@@ -138,13 +133,18 @@
    "fieldtype": "Table",
    "label": "RFIDs",
    "options": "RFID Detail"
+  },
+  {
+   "fieldname": "gas_serial_no",
+   "fieldtype": "Data",
+   "label": "Gas Serial No"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-30 11:33:32.703941",
+ "modified": "2025-06-30 15:38:10.504643",
  "modified_by": "Administrator",
  "module": "RFID",
  "name": "RFID Tag",
