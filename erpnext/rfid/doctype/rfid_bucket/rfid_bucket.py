@@ -31,5 +31,5 @@ class RFIDBucket(Document):
 		reader_name = frappe.get_value(
 			"RFID Reader", {"rfid_user": current_user, "docstatus": 1}
 		)
-		if not self.rfid_reader and reader_name:
-			self.rfid_reader = reader_name
+		if not self.rfid_reader_name and reader_name:
+			self.rfid_reader_name = reader_name
