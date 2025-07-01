@@ -57,7 +57,6 @@
   "rfid_reader_name",
   "rfid_user",
   "ip_address",
-  "rfid_reading_time",
   "items_section",
   "items",
   "section_break0",
@@ -1350,12 +1349,6 @@
    "label": "IP Address"
   },
   {
-   "fieldname": "rfid_reading_time",
-   "fieldtype": "Datetime",
-   "hidden": 1,
-   "label": "RFID Reading time"
-  },
-  {
    "fieldname": "rfids_tab",
    "fieldtype": "Tab Break",
    "label": "RFIDs"
@@ -1372,7 +1365,7 @@
  "idx": 261,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-30 10:28:25.441854",
+ "modified": "2025-07-01 09:32:53.660800",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Purchase Receipt",

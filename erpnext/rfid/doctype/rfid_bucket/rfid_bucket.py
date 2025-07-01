@@ -17,6 +17,7 @@ class RFIDBucket(Document):
 
 		create_time: DF.Datetime | None
 		rfid_reader_name: DF.Link | None
+		selected: DF.Check
 		tag: DF.Data | None
 	# end: auto-generated types
 	pass

@@ -9,7 +9,8 @@
   "tag",
   "rfid_reader_name",
   "column_break_eaky",
-  "create_time"
+  "create_time",
+  "selected"
  ],
  "fields": [
   {
@@ -32,12 +33,18 @@
    "fieldtype": "Datetime",
    "label": "Create time",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "selected",
+   "fieldtype": "Check",
+   "label": "Selected"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-07-01 07:56:52.846143",
+ "modified": "2025-07-01 09:58:33.689825",
  "modified_by": "Administrator",
  "module": "RFID",
  "name": "RFID Bucket",

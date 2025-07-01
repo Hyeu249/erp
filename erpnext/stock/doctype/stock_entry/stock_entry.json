@@ -54,7 +54,6 @@
   "rfid_reader_name",
   "rfid_user",
   "ip_address",
-  "rfid_reading_time",
   "section_break_ecwi",
   "scan_rfid_button",
   "stop_rfid_button",
@@ -729,12 +728,6 @@
    "label": "IP Address"
   },
   {
-   "fieldname": "rfid_reading_time",
-   "fieldtype": "Datetime",
-   "hidden": 1,
-   "label": "RFID Reading time"
-  },
-  {
    "fieldname": "section_break_ecwi",
    "fieldtype": "Section Break"
   },
@@ -774,7 +767,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-06-30 10:29:06.182066",
+ "modified": "2025-07-01 09:31:43.923594",
  "modified_by": "Administrator",
  "module": "Stock",
  "name": "Stock Entry",

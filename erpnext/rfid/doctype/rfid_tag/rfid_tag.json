@@ -16,7 +16,6 @@
   "rfid_reader_name",
   "rfid_user",
   "ip_address",
-  "rfid_reading_time",
   "amended_from",
   "location_section",
   "warehouse",
@@ -65,13 +64,6 @@
   {
    "fieldname": "column_break_sikz",
    "fieldtype": "Column Break"
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "rfid_reading_time",
-   "fieldtype": "Datetime",
-   "hidden": 1,
-   "label": "RFID Reading time"
   },
   {
    "fieldname": "amended_from",
@@ -144,7 +136,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-01 07:52:44.357716",
+ "modified": "2025-07-01 09:31:23.434896",
  "modified_by": "Administrator",
  "module": "RFID",
  "name": "RFID Tag",

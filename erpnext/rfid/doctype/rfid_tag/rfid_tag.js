@@ -108,10 +108,12 @@ frappe.ui.form.on("RFID Tag", {
 	},
 
 	get_default_tag(frm) {
-		const maxRfid = frm.doc.rfids.reduce((prev, current) => {
+		if (frm.doc.rfids?.length === 0) return;
+
+		const maxRfid = frm.doc.rfids?.reduce((prev, current) => {
 			return current.count > prev.count ? current : prev;
 		});
 
-		frm.set_value("tag", maxRfid.rfid_tag);
+		if (maxRfid) frm.set_value("tag", maxRfid.rfid_tag);
 	},
 });

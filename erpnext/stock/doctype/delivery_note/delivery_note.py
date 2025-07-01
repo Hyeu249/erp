@@ -107,7 +107,6 @@ class DeliveryNote(SellingController):
 		represents_company: DF.Link | None
 		return_against: DF.Link | None
 		rfid_reader_name: DF.Link | None
-		rfid_reading_time: DF.Datetime | None
 		rfid_user: DF.Link | None
 		rfids: DF.Table[RFIDDetail]
 		rounded_total: DF.Currency

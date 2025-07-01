@@ -12,7 +12,6 @@
   "reader_type",
   "ip_address",
   "rfid_user",
-  "rfid_reading_time",
   "column_break_qvot",
   "length",
   "rfids"
@@ -70,20 +69,13 @@
    "fieldtype": "Select",
    "label": "Reader Type",
    "options": "Onsite\nOffsite"
-  },
-  {
-   "allow_on_submit": 1,
-   "fieldname": "rfid_reading_time",
-   "fieldtype": "Datetime",
-   "hidden": 1,
-   "label": "RFID Reading time"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-01 07:52:01.515846",
+ "modified": "2025-07-01 09:31:12.359122",
  "modified_by": "Administrator",
  "module": "RFID",
  "name": "RFID Reader",

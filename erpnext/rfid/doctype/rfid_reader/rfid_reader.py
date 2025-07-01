@@ -20,7 +20,6 @@ class RFIDReader(Document):
 		length: DF.Int
 		reader_type: DF.Literal["Onsite", "Offsite"]
 		rfid_reader_name: DF.Data | None
-		rfid_reading_time: DF.Datetime | None
 		rfid_user: DF.Link | None
 		rfids: DF.LongText | None
 	# end: auto-generated types

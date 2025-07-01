@@ -24,7 +24,6 @@ class RFIDTag(Document):
         item: DF.Link | None
         reinspection_date: DF.Date | None
         rfid_reader_name: DF.Link | None
-        rfid_reading_time: DF.Datetime | None
         rfid_user: DF.Link | None
         rfids: DF.Table[RFIDDetail]
         tag: DF.Data | None

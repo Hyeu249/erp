@@ -24,13 +24,24 @@ def clean_before_scan_rfid(user, rfid_reader_name):
 
 @frappe.whitelist()
 def get_rfid_by_reader(rfid_reader_name, rfid_reading_time):
-    rfids = frappe.get_all(
+    rfids_bucket = frappe.get_all(
         "RFID Bucket",
         filters={
             "rfid_reader_name": rfid_reader_name,
             "create_time": [">", rfid_reading_time],
+            "selected": False,
         },
-        fields=["tag"],  # thêm field tùy bạn
+        fields=["name", "tag"],  # thêm field tùy bạn
     )
 
-    return [r["tag"] for r in rfids]
+    if rfids_bucket:
+        RFIDBucket = frappe.qb.DocType("RFID Bucket")
+        names = [r["name"] for r in rfids_bucket]
+
+        (
+            frappe.qb.update(RFIDBucket)
+            .set(RFIDBucket.selected, 1)
+            .where(RFIDBucket.name.isin(names))
+        ).run()
+
+    return [r["tag"] for r in rfids_bucket]

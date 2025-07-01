@@ -125,7 +125,6 @@ class StockEntry(StockController):
 		purpose: DF.Literal["Material Issue", "Material Receipt", "Material Transfer", "Material Transfer for Manufacture", "Material Consumption for Manufacture", "Manufacture", "Repack", "Send to Subcontractor", "Disassemble"]
 		remarks: DF.Text | None
 		rfid_reader_name: DF.Link | None
-		rfid_reading_time: DF.Datetime | None
 		rfid_user: DF.Link | None
 		rfids: DF.Table[RFIDDetail]
 		sales_invoice_no: DF.Link | None
