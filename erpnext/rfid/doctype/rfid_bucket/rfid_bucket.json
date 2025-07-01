@@ -37,7 +37,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-26 15:43:33.161423",
+ "modified": "2025-07-01 07:56:52.846143",
  "modified_by": "Administrator",
  "module": "RFID",
  "name": "RFID Bucket",
@@ -52,7 +52,19 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "RFID Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "RFID User",
    "share": 1,
    "write": 1
   }
