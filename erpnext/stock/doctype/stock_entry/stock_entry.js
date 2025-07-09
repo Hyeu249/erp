@@ -197,15 +197,17 @@ frappe.ui.form.on("Stock Entry", {
 				filters: {
 					docstatus: 1,
 				},
+				limit: 20000,
 			})
 			.then((res) => {
+				console.log("res:", res.length);
 				frappe.require(module_path).then(() => {
+					const seenTags = new Set(frm.doc.rfids.map((e) => e.rfid_tag)); // Lưu tag đã có từ đầu
 					const success_cb = () => {
 						frappe.show_alert({ message: "Máy bắt đầu quét...!", indicator: "green" });
 
 						start_getting_rfid(frm, (epcArray) => {
 							epcArray.forEach((rfid) => {
-								const rfid_tag_found = frm.doc.rfids.find((r) => r.rfid_tag === rfid);
 								const rfid_found = res.find((r) => r.tag === rfid);
 								const item_found = frm.doc.items.find(
 									(r) => r.item_code && r.item_code === rfid_found?.item
@@ -215,7 +217,7 @@ frappe.ui.form.on("Stock Entry", {
 										? item_found && item_found?.s_warehouse == rfid_found?.warehouse
 										: item_found;
 
-								if (transfer_rule && rfid_found && !rfid_tag_found) {
+								if (transfer_rule && rfid_found && !seenTags.has(rfid)) {
 									const serial_no = rfid_found.gas_serial_no;
 									const rei_d = rfid_found.reinspection_date;
 
@@ -226,6 +228,7 @@ frappe.ui.form.on("Stock Entry", {
 									frappe.model.set_value(row.doctype, row.name, "brand", rfid_found.brand);
 									frappe.model.set_value(row.doctype, row.name, "color", rfid_found.color);
 									frappe.model.set_value(row.doctype, row.name, "reinspection_date", rei_d);
+									seenTags.add(rfid);
 								}
 							});
 						});

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:tag",
  "creation": "2025-06-26 14:28:06.219113",
@@ -31,6 +32,7 @@
    "unique": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "item",
    "fieldtype": "Link",
    "label": "Item",
@@ -97,6 +99,7 @@
    "options": "Customer"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "brand",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -104,12 +107,14 @@
    "options": "City Petro\nVina Pacific Petro\nVimeco"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "color",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Color"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "reinspection_date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -127,6 +132,7 @@
    "options": "RFID Detail"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "gas_serial_no",
    "fieldtype": "Data",
    "label": "Gas Serial No"
@@ -136,7 +142,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-07-01 09:31:23.434896",
+ "modified": "2025-07-09 01:48:49.301004",
  "modified_by": "Administrator",
  "module": "RFID",
  "name": "RFID Tag",
@@ -150,6 +156,7 @@
    "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
