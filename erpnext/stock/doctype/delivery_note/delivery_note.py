@@ -12,6 +12,7 @@ from frappe.utils import cint, flt
 
 from erpnext.controllers.accounts_controller import get_taxes_and_charges, merge_taxes
 from erpnext.controllers.selling_controller import SellingController
+from erpnext.stock.get_item_details import get_item_details
 
 form_grid_templates = {"items": "templates/form_grid/item_grid.html"}
 
@@ -822,6 +823,42 @@ def get_returned_qty_map(delivery_note):
 
 	return returned_qty_map
 
+def update_items_from_purchase_receipt(source_name, doc):
+    purchase_receipts = frappe.get_all(
+        "Purchase Receipt",
+        filters={"inter_company_reference": source_name, "docstatus": 1},
+        fields=["name"],
+    )
+
+    items = []
+
+    for receipt in purchase_receipts:
+        receipt_name = receipt.get("name")
+        child_table_data = frappe.get_all(
+            "Purchase Receipt Item",
+            filters={"parent": receipt_name},
+            fields=["item_code", "qty"],
+        )
+        items = items + child_table_data
+
+    for item in items:
+        detail = get_item_details(
+            {
+                "company": doc.company,
+                "qty": item.qty,
+                "item_code": item.item_code,
+                "customer": doc.customer,
+                "doctype": doc.doctype,
+                "selling_price_list": doc.selling_price_list,
+                "price_list_currency": doc.price_list_currency,
+                "conversion_rate": doc.conversion_rate,
+                "plc_conversion_rate": doc.plc_conversion_rate,
+            }
+        )
+        detail.rate = -detail.price_list_rate
+        doc.append("items", detail)
+
+    return doc
 
 @frappe.whitelist()
 def make_sales_invoice(source_name, target_doc=None, args=None):
@@ -919,6 +956,8 @@ def make_sales_invoice(source_name, target_doc=None, args=None):
 	)
 	if automatically_fetch_payment_terms and not doc.is_return:
 		doc.set_payment_schedule()
+
+	doc = update_items_from_purchase_receipt(source_name, doc)
 
 	return doc
 
